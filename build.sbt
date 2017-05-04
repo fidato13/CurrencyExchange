@@ -11,6 +11,8 @@ libraryDependencies += "org.jsoup" % "jsoup" % "1.8.1"
 libraryDependencies += "commons-codec" % "commons-codec" % "1.10"
 // https://mvnrepository.com/artifact/org.apache.commons/commons-email
 libraryDependencies += "org.apache.commons" % "commons-email" % "1.1"
+// https://mvnrepository.com/artifact/com.twilio.sdk/twilio-java-sdk
+libraryDependencies += "com.twilio.sdk" % "twilio-java-sdk" % "6.3.0"
 
 
 // Uncomment to use Akka
