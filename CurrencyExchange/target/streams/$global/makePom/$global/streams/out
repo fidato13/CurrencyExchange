@@ -1,0 +1,3 @@
+[0m[[33mwarn[0m] [0mSkipped generating '<exclusion/>' for org.openjdk.jmh#*. Dependency exclusion should have both 'org' and 'module' to comply with Maven POM's schema.[0m
+[0m[[33mwarn[0m] [0mSkipped generating '<exclusion/>' for org.openjdk.jmh#*. Dependency exclusion should have both 'org' and 'module' to comply with Maven POM's schema.[0m
+[0m[[0minfo[0m] [0mWrote /trn/git/github/CurrencyExchange/CurrencyExchange/target/scala-2.10/currency-exchange_2.10-0.1-SNAPSHOT.pom[0m

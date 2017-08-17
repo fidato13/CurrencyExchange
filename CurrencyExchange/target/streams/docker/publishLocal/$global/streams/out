@@ -1,0 +1,77 @@
+[0m[[0mdebug[0m] [0mExecuting docker build --force-rm -t fidato/currency-exchange:0.1-SNAPSHOT .[0m
+[0m[[0mdebug[0m] [0mWorking directory /trn/git/github/CurrencyExchange/CurrencyExchange/target/docker/stage[0m
+[0m[[0minfo[0m] [0mSending build context to Docker daemon   61.1MB[0m
+[0m[[0minfo[0m] [0mStep 1/8 : FROM openjdk[0m
+[0m[[0minfo[0m] [0mlatest: Pulling from library/openjdk[0m
+[0m[[0minfo[0m] [0m06b22ddb1913: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m336c28b408ed: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m1f3e6b8d80c3: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m5ccc640979f6: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m14eaa20184e6: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m19a8522e2399: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m39ba9d7befca: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m635bf5037831: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m5ccc640979f6: Waiting[0m
+[0m[[0minfo[0m] [0md1236c277f1c: Pulling fs layer[0m
+[0m[[0minfo[0m] [0m14eaa20184e6: Waiting[0m
+[0m[[0minfo[0m] [0m39ba9d7befca: Waiting[0m
+[0m[[0minfo[0m] [0md1236c277f1c: Waiting[0m
+[0m[[0minfo[0m] [0m19a8522e2399: Waiting[0m
+[0m[[0minfo[0m] [0m1f3e6b8d80c3: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m1f3e6b8d80c3: Download complete[0m
+[0m[[0minfo[0m] [0m336c28b408ed: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m336c28b408ed: Download complete[0m
+[0m[[0minfo[0m] [0m14eaa20184e6: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m14eaa20184e6: Download complete[0m
+[0m[[0minfo[0m] [0m19a8522e2399: Download complete[0m
+[0m[[0minfo[0m] [0m39ba9d7befca: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m39ba9d7befca: Download complete[0m
+[0m[[0minfo[0m] [0m5ccc640979f6: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m5ccc640979f6: Download complete[0m
+[0m[[0minfo[0m] [0m06b22ddb1913: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m06b22ddb1913: Download complete[0m
+[0m[[0minfo[0m] [0md1236c277f1c: Verifying Checksum[0m
+[0m[[0minfo[0m] [0md1236c277f1c: Download complete[0m
+[0m[[0minfo[0m] [0m06b22ddb1913: Pull complete[0m
+[0m[[0minfo[0m] [0m336c28b408ed: Pull complete[0m
+[0m[[0minfo[0m] [0m1f3e6b8d80c3: Pull complete[0m
+[0m[[0minfo[0m] [0m5ccc640979f6: Pull complete[0m
+[0m[[0minfo[0m] [0m14eaa20184e6: Pull complete[0m
+[0m[[0minfo[0m] [0m19a8522e2399: Pull complete[0m
+[0m[[0minfo[0m] [0m39ba9d7befca: Pull complete[0m
+[0m[[0minfo[0m] [0m635bf5037831: Verifying Checksum[0m
+[0m[[0minfo[0m] [0m635bf5037831: Download complete[0m
+[0m[[0minfo[0m] [0m635bf5037831: Pull complete[0m
+[0m[[0minfo[0m] [0md1236c277f1c: Pull complete[0m
+[0m[[0minfo[0m] [0mDigest: sha256:5da842d59f76009fa27ffde06888ebd560c7ad17607d7cd1e52fc0757c9a45fb[0m
+[0m[[0minfo[0m] [0mStatus: Downloaded newer image for openjdk:latest[0m
+[0m[[0minfo[0m] [0m ---> 4551430cfe80[0m
+[0m[[0minfo[0m] [0mStep 2/8 : WORKDIR /opt/docker[0m
+[0m[[0minfo[0m] [0m ---> 0e42cc6e9682[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container 537c9dfa8fc6[0m
+[0m[[0minfo[0m] [0mStep 3/8 : ADD opt /opt[0m
+[0m[[0minfo[0m] [0m ---> 97a6790a231d[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container 6500c1a5f427[0m
+[0m[[0minfo[0m] [0mStep 4/8 : RUN chown -R daemon:daemon .[0m
+[0m[[0minfo[0m] [0m ---> Running in d82188c26ab1[0m
+[0m[[0minfo[0m] [0m ---> fbb133a7d29f[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container d82188c26ab1[0m
+[0m[[0minfo[0m] [0mStep 5/8 : EXPOSE 7070[0m
+[0m[[0minfo[0m] [0m ---> Running in 712e4fb81dc2[0m
+[0m[[0minfo[0m] [0m ---> 1b892ad3e23e[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container 712e4fb81dc2[0m
+[0m[[0minfo[0m] [0mStep 6/8 : USER daemon[0m
+[0m[[0minfo[0m] [0m ---> Running in cdc804d905f1[0m
+[0m[[0minfo[0m] [0m ---> 31746f52e42c[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container cdc804d905f1[0m
+[0m[[0minfo[0m] [0mStep 7/8 : ENTRYPOINT sh -c /[0m
+[0m[[0minfo[0m] [0m ---> Running in 5b68ac795eae[0m
+[0m[[0minfo[0m] [0m ---> 6b90ff4f1ac9[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container 5b68ac795eae[0m
+[0m[[0minfo[0m] [0mStep 8/8 : CMD[0m
+[0m[[0minfo[0m] [0m ---> Running in 9fe42424c7b0[0m
+[0m[[0minfo[0m] [0m ---> dc798d195ae7[0m
+[0m[[0minfo[0m] [0mRemoving intermediate container 9fe42424c7b0[0m
+[0m[[0minfo[0m] [0mSuccessfully built dc798d195ae7[0m
+[0m[[0minfo[0m] [0mSuccessfully tagged fidato/currency-exchange:0.1-SNAPSHOT[0m
+[0m[[0minfo[0m] [0mBuilt image fidato/currency-exchange:0.1-SNAPSHOT[0m

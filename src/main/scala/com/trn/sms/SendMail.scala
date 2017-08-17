@@ -4,7 +4,7 @@ import javax.mail._
 import javax.mail.internet._
 import java.util.Properties
 
-object SendMail extends App {
+object SendMail /*extends App */{
 
 
   val username = "<enter senders valid email>"

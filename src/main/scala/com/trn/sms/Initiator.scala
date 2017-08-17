@@ -2,7 +2,7 @@ package com.trn.sms
 
 import org.jsoup.Jsoup
 
-object Initiator extends App {
+object Initiator /*extends App*/ {
 
   val currency1 = "eur"
   val currency2 = "inr"

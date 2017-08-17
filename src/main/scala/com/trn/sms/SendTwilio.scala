@@ -10,7 +10,7 @@ import org.apache.http.message.BasicNameValuePair
 import java.util.ArrayList
 import java.util.List
 
-object SendTwilio extends App {
+object SendTwilio /*extends App*/ {
 
   val ACCOUNT_SID = "AC270965dc1d10bbe8aa812f944c351e2c"
   val AUTH_TOKEN = "57a39ded3bd4b43913fb47703ad5cd65"
