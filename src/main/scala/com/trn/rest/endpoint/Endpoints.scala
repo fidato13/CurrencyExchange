@@ -1,11 +1,11 @@
 package com.trn.rest.endpoint
 
-import com.trn.rest.models.Currency
+import com.trn.rest.commands.Command
 import io.circe.{Encoder, Json}
 import io.finch._
 import io.finch.circe._
 import com.trn.rest.services.Calculation._
-
+import com.trn.rest.services.CommandProcessing._
 
 object Endpoints {
 
@@ -14,6 +14,8 @@ object Endpoints {
   val pathINR = "INR"
   val pathGBP = "GBP"
   val pathEUR = "EUR"
+  val pathCMD = "cmd"
+  //val postedCommand: Endpoint[Command] = body.as[Command]
 
 
   // Route for
@@ -24,9 +26,21 @@ object Endpoints {
 
   }
 
-  val getEURToINRRAW = get(pathRaw :: pathEUR :: pathINR) {
+  val getEURToINRRAW: Endpoint[String] = get(pathRaw :: pathEUR :: pathINR) {
     getINRRaw(pathEUR.toLowerCase)
     Ok("Posted to Slack")
+  }
+
+  val postCommandsFromSlack:Endpoint[String] = post(pathCMD :: param("text").as[String] :: param("user_name").as[String]) { (message: String, user: String) =>
+
+    // process command
+    val command: Command = buildCommand(message)
+    val response = command.response
+
+
+    postToSlackDummy(s"Hey @$user!, $response")
+    Ok("Hello, response!")
+
   }
 
    val getINRTransfer = get(pathTransfer :: pathGBP :: pathINR) {
@@ -34,7 +48,7 @@ object Endpoints {
   }
 
   // Endpoints
-  val combined = getGBPToINRRAW :+: getEURToINRRAW :+: getINRTransfer
+  val combined = getGBPToINRRAW :+: getEURToINRRAW :+: postCommandsFromSlack :+: getINRTransfer
 
   /**
     * sample Endpoint :
