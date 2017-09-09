@@ -10,7 +10,7 @@ import com.trn.rest.services.CommandProcessing._
 object Endpoints {
 
   val pathRaw = "raw"
-  val pathTransfer = "transfer"
+  val pathTransferwise = "transferwise"
   val pathINR = "INR"
   val pathGBP = "GBP"
   val pathEUR = "EUR"
@@ -31,6 +31,17 @@ object Endpoints {
     Ok("Posted to Slack")
   }
 
+  val getGBPToINRTransferwise = get(pathTransferwise :: pathGBP :: pathINR) {
+    getINRTransferwise(pathGBP.toLowerCase)
+    Ok("")
+
+  }
+
+  val getEURToINRTransferwise: Endpoint[String] = get(pathTransferwise :: pathEUR :: pathINR) {
+    getINRTransferwise(pathEUR.toLowerCase)
+    Ok("")
+  }
+
   val postCommandsFromSlack:Endpoint[String] = post(pathCMD :: param("text").as[String] :: param("user_name").as[String]) { (message: String, user: String) =>
 
     // process command
@@ -43,16 +54,14 @@ object Endpoints {
 
   }
 
-   val getINRTransfer = get(pathTransfer :: pathGBP :: pathINR) {
-    Ok("Test-INR-Transfer")
-  }
 
   // Endpoints
-  val combined = getGBPToINRRAW :+: getEURToINRRAW :+: postCommandsFromSlack :+: getINRTransfer
+  val combined = getGBPToINRRAW :+: getEURToINRRAW :+: postCommandsFromSlack :+: getGBPToINRTransferwise :+: getEURToINRTransferwise
 
   /**
     * sample Endpoint :
     * http://localhost:7070/raw/GBP/INR
+    * http://localhost:7070/transferwise/GBP/INR
     */
 
   // Convert domain errors to JSON

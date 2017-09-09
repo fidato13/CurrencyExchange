@@ -16,7 +16,7 @@ class Joke(text: String) extends Command {
   override def action: String = {
     val jsonJoke: String = Http("http://api.icndb.com/jokes/random").asString.body.replace("\"type\": \"success\", ","").replace("{ \"value\":","").replace("] }","]")
 
-    val jsvalueJoke = Json.parse(jsonJoke)
+    val jsvalueJoke: JsValue = Json.parse(jsonJoke)
 
     val valueFromJson: JsResult[Value] = Json.fromJson[Value](jsvalueJoke)
 

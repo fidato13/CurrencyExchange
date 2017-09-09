@@ -8,16 +8,21 @@ import com.jcraft.jsch.ChannelExec
 import com.jcraft.jsch.JSch
 import com.jcraft.jsch.Session
 
-
+/**
+  * The idea is to create a script which will go into a screen session and restart the failed command. And we will execute this new script remotely!
+  */
 object RemoteExecute /*extends App*/ {
 
 
-  val username = "fidato"
+  val username = "root"
   val password = "hadoop"
   val host = "192.168.50.39"
+  //val host = "ec2-54-217-2-190.eu-west-1.compute.amazonaws.com"
   val port = 22
 
   val path = "/home/fidato/ruf/script1.sh"
+  val privateKey = "~/.ssh/id_rsa"
+  //val privateKey = "~/Aviator-001.pem"
 
 
   /**
@@ -43,6 +48,7 @@ object RemoteExecute /*extends App*/ {
          */
       val session = jsch.getSession(config.username, config.host, config.port)
       session.setConfig("StrictHostKeyChecking", "no")
+      //jsch.addIdentity(privateKey)
       session.setPassword(config.password)
       session.connect
 
@@ -54,7 +60,8 @@ object RemoteExecute /*extends App*/ {
 
       // Set the command that you want to execute
       // In our case its the remote shell script
-      channelExec.setCommand("sh "+config.path)
+      //channelExec.setCommand("sh "+config.path)
+      channelExec.setCommand("ls -lrt")
 
 
       // Execute the command
@@ -90,13 +97,13 @@ object RemoteExecute /*extends App*/ {
   }
 
 
-  println("Execute script on sandbox /root/ruf-trn/script1.sh")
+  //println("Execute script on sandbox /root/ruf-trn/script1.sh")
 
   //create RemoteConfig object
   val remoteConfig = RemoteConfig(username, password, host, port, path)
 
   val result: RemoteExecutionResponse = remoteExecuteScript(remoteConfig)
 
-  println(s"The result from script execution is  => ${result.outStream}")
+  result.outStream.foreach{x => println(s"$x")}
 
 }

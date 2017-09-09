@@ -4,7 +4,7 @@ package com.trn.rest.models
 import io.circe.{ Json, Encoder }
 
 /**
-  * Currency case class.
+  * Currency case class from Google.
   */
 case class Currency(message: String)
 

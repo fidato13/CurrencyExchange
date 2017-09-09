@@ -12,7 +12,9 @@ object CommandProcessing {
     val jsonMessage = s"""{"text": "$message"}"""
 
     //post to slack
-    Http("https://hooks.slack.com/services/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").postData(jsonMessage)
+    // trn-dev https://hooks.slack.com/services/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
+    //trn-test https://hooks.slack.com/services/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
+    Http("https://hooks.slack.com/services/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").postData(jsonMessage)
       .header("Content-Type", "application/text")
       .header("Charset", "UTF-8")
       .option(HttpOptions.readTimeout(10000)).asString
