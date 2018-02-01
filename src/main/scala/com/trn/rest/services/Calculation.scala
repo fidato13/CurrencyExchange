@@ -23,8 +23,12 @@ object Calculation {
   }
 
   def fetchFromTransferwise(currency1: String, currency2: String): String = {
+
+    val currencyOne = currency1.toUpperCase()
+    val currencyTwo = currency2.toUpperCase()
+
     Jsoup
-      .connect(s"https://transferwise.com/api/v1/payment/calculate?amount=1000&amountCurrency=source&getNoticeMessages=true&hasDiscount=false&isFixedRate=false&isGuaranteedFixedTarget=false&payInMethod=ADYEN_DEBIT&sourceCurrency=$currency1&targetCurrency=$currency2")
+      .connect(s"https://transferwise.com/api/v1/payment/calculate?amount=1000&amountCurrency=source&getNoticeMessages=true&hasDiscount=false&isFixedRate=false&isGuaranteedFixedTarget=false&payInMethod=ADYEN_DEBIT&sourceCurrency=$currencyOne&targetCurrency=$currencyTwo")
       .userAgent(
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.153 Safari/537.36")
         .header("x-authorization-key","dad99d7d8e52c2c8aaf9fda788d8acdc") // key might change
